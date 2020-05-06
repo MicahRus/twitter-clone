@@ -1,6 +1,11 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
 
+
+  def index
+    @tweets = Tweet.all
+  end  
+  
   def new
     @tweet = Tweet.new
   end
@@ -10,12 +15,11 @@ class TweetsController < ApplicationController
     redirect_to @tweet
   end
 
-
   def show
     @tweet = Tweet.find(params[:id])
   end
 
-  private 
+  private
 
   def tweet_params
     params.require(:tweet).permit(:body)
