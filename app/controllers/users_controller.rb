@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-
-  def index; 
+  def index
     @tweets = Tweet.all
   end
-  
 end

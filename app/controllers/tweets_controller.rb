@@ -10,12 +10,11 @@ class TweetsController < ApplicationController
     redirect_to @tweet
   end
 
-
   def show
     @tweet = Tweet.find(params[:id])
   end
 
-  private 
+  private
 
   def tweet_params
     params.require(:tweet).permit(:body)
