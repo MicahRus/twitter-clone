@@ -1,0 +1,12 @@
+<div class="card mt-2 mb-2 p-3">
+  <p><%= User.find(tweet.user_id).username %> · <%= tweet.created_at %></p>
+  <p><%= tweet.body %></p>
+  <div class="row d-flex m-0">
+    <div class="btn-controls ml-auto">
+    <%= link_to "View", tweet_path(tweet.id), class: 'btn-sm btn-primary' %>
+    <% if params[:controller] == 'profile' && params[:action] == 'index' %>
+        <%= link_to "Edit", edit_tweet_path(tweet.id), class: "btn-sm btn-success"  %> <%= link_to "Delete", tweet_path(tweet.id), class: "btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+    </div>
+  </div>
+</div>
