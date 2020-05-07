@@ -3,6 +3,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
+    @likes = Like.all
   end
 
   def new

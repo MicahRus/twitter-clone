@@ -6,6 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Removing old data
+
+# puts ' Removing users'
+
+# User.destroy 
+
+# puts 'Users successfully removed'
+
+# puts ' Removing likes'
+
+# Like.all.destroy 
+
+# puts 'Likes successfully removed'
+
+# puts ' Removing tweets'
+
+# Tweet.all.destroy 
+
+# puts 'tweets successfully removed'
+
+
+# Seeding
+
 puts "Seeding users"
 
 user = User.create(email: "test@gmail.com", password: "password")
@@ -33,3 +56,9 @@ puts "Seeding tweets"
 
 
 puts "Succesfully seeded tweets!✅"
+
+  Like.create(
+    user_id: 1,
+    tweet_id: 1,
+    has_liked: true
+  )

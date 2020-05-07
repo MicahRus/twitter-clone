@@ -1,3 +1,5 @@
 <h1> Show page </h1>
 
 <%= @tweet.body %>
+
+<%= link_to "Like", tweet_likes_path(@tweet), method: :post%>
