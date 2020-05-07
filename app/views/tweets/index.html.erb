@@ -5,6 +5,7 @@
 <% @tweets.each do |tweet| %>
   <p><%= tweet.body %></p>
   <%= link_to "Like", tweet_likes_path(tweet), method: :post%>
+  <% end %>
 
 
 
