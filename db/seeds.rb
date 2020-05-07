@@ -57,8 +57,8 @@ puts "Seeding tweets"
 
 puts "Succesfully seeded tweets!✅"
 
-  Like.create(
-    user_id: 1,
-    tweet_id: 1,
-    has_liked: true
-  )
+  # Like.create(
+  #   user_id: 1,
+  #   tweet_id: 1,
+  #   has_liked: true
+  # )
