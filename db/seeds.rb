@@ -31,7 +31,9 @@
 
 puts "Seeding users"
 
-user = User.create(email: "test@gmail.com", password: "password")
+user = User.create(email: "test@gmail.com", password: "password", username: 'test_user_1')
+
+user_2 = User.create(email: "test_2@gmail.com", password: "password", username: 'test_user_2')
 
 puts "Succesfully seeded users!✅"
 
