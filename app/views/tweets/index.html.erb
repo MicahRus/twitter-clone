@@ -1,13 +1,5 @@
-<h1> Tweet Home page </h1>
-
 <%= render 'shared/form' %>
 
 <% @tweets.reverse_each do |tweet| %>
-<div class="tweet">
-  <p><%= User.find(tweet.user_id).username %></p>
-  <p><%= tweet.body %></p>
-  <p><%= tweet.created_at %></p>
-  <p><%= link_to "View", tweet_path(tweet.id) %>
-  <hr>
-</div>
+  <%= render 'shared/card', tweet: tweet %>
 <% end %>

@@ -4,6 +4,9 @@ class TweetsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    puts
+    puts params
+    puts
     @tweets = Tweet.all
     @tweet = Tweet.new
   end  
@@ -14,7 +17,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = current_user.tweets.create(tweet_params)
-    redirect_to @tweet
+    redirect_to root_path
   end
 
   def show

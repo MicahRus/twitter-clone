@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :tweets, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   root to: "tweets#index"
 
-  get '/:username', to: "profile#index"
+  get '/:username', to: "profile#index", as: :profile
 end
