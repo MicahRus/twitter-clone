@@ -5,8 +5,6 @@
 <% @tweets.each do |tweet| %>
   <p><%= tweet.body %></p>
   <%= link_to "Like", tweet_likes_path(tweet), method: :post%>
-  <% end %>
-
 
 
   <% @likes.each do |like| %>
@@ -14,6 +12,7 @@
       <%= like.tweet_id %>
     <% end %>
   <% end %> 
+<% end %>
 
 <% @tweets.reverse_each do |tweet| %>
   <%= render 'shared/card', tweet: tweet %>
