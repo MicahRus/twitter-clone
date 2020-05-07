@@ -1,3 +1,11 @@
 <h1> Show page </h1>
 
 <%= @tweet.body %>
+
+ <div class="show-edit-delete">
+   <% if can? :edit, @tweet %>
+     <%= link_to "Edit", edit_tweet_path(@tweet.id) %>
+     <%= link_to "Delete", tweet_path(@tweet.id), method: :delete %>
+   <% end %>
+   <%= link_to "Back", :back %>
+ </div>
