@@ -18,4 +18,8 @@ Rails.application.routes.draw do
      resources :tweets do
       resources :likes
     end
+  # end
+  resources :tweets
+
+  get '/:username', to: "profile#index", as: :profile
 end
