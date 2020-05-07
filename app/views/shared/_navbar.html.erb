@@ -1,5 +1,25 @@
-<nav>
-  <%= link_to "🏚", root_path %>
-  <%= link_to 'Tweets', tweets_path %>
-  <%= link_to 'New Tweets', new_tweet_path %>
+<nav class="nav-main">
+    <div class="nav-main__site-logo">
+        <%= link_to "Tweetclone", root_path, class:"nav-main__site-logo-link "%>
+    </div>
+    <ul>
+        <% if user_signed_in? %>
+            <li>
+                <%= link_to "/#{current_user.username}" do %>
+                    <%= current_user.username %>
+                <% end %>
+            </li>
+            <li><%= link_to "New Tweet", new_tweet_path %></li>
+        <% end %>
+        <li>
+            <% if user_signed_in? %>
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            <% else %>
+                <%= link_to "Sign in", new_user_session_path %>
+            <% end %>
+        </li>
+        <% if !user_signed_in? %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+    </ul>
 </nav>
