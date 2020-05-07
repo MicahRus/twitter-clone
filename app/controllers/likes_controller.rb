@@ -5,13 +5,18 @@ class LikesController < ApplicationController
     likes = { user_id: @user, tweet_id: @tweet, has_liked: true }
     @likes = Like.all
     @like = Like.new(likes)
-    @likes.each do |x|
-      if x.user_id == @like.user_id && x.tweet_id == @like.tweet_id
-        x.destroy
-        @like.destroy
-        break
+
+    if @likes.empty?
+      @like.save
+    else
+      @likes.each do |x|
+        if x.user_id == @like.user_id && x.tweet_id == @like.tweet_id
+          x.destroy
+          @like.destroy
+          break
+        end
+        @like.save!
       end
-      @like.save!
     end
   end
 end
