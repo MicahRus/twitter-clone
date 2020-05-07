@@ -18,5 +18,6 @@ class LikesController < ApplicationController
         @like.save!
       end
     end
+    redirect_to request.referer
   end
 end

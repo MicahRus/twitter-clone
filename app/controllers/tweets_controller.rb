@@ -1,11 +1,10 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :tweets_and_likes, only: [:index, :show]
   before_action :authenticate_user!
   load_and_authorize_resource
 
   def index
-    @tweets = Tweet.all
-    @likes = Like.all
   end
 
   def new
@@ -18,11 +17,9 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
   end
 
   def edit
-    @tweet = Tweet.find(params[:id])
   end
 
   def update
@@ -41,11 +38,16 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:body)
+    params.permit(:body)
   end
 
   def set_tweet
     id = params[:id]
     @tweet = Tweet.find(id)
+  end
+
+  def tweets_and_likes
+    @tweets = Tweet.all
+    @likes = Like.all
   end
 end
