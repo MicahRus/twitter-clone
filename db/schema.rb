@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_023149) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tweet_id"], name: "index_likes_on_tweet_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
-    
+  end
+  
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
