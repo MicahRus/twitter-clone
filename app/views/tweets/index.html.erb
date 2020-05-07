@@ -8,6 +8,7 @@
 
     <% @likes.each do |like| %>
       <%  if like.tweet.id == tweet.id%>
+        <% if @likes.length == 2 %>
       <p> <%= like.user.username %> Liked this</p>
       <% end %>
     <% end %>
