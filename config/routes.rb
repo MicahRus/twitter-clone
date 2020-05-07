@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   resources :tweets, only: [:new, :show, :index]
   
-  resources :likes, only: [:new, :create]
+  resources :likes, only: [:new, :create, :destroy]
   
   resources :users
 

@@ -4,5 +4,14 @@
 
 <% @tweets.each do |tweet| %>
   <p><%= tweet.body %></p>
-  <p> <%= link_to "Like", tweet_likes_path(tweet.id), method: :post%></p>
+  <%= link_to "Like", tweet_likes_path(tweet), method: :post%>
+
+
+
+  <% @likes.each do |like| %>
+    <% if like.tweet_id == tweet.id %>
+      <%= like.tweet_id %>
+    <% end %>
+  <% end %> 
+
 <% end %>
