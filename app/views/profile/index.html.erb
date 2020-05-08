@@ -1,7 +1,20 @@
-<h1>Profile page</h1>
+<div class="card p-5 mt-2">
 
-<p><%= current_user.username %></p>
+    <h1><%= @user.username %></h1>
 
-<% current_user.tweets.each do |tweet| %>
-  <%= render 'shared/card', tweet: tweet %>
-<% end %>
+    <div class="row m-0">
+        <div class="mr-3">Followers: <%= @user.followers.length %></div>
+        <div class="m-0">Following: <%= @user.following.length %></div>
+    </div>
+
+</div>
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-5 m-auto">
+            <% @user.tweets.reverse_each do |tweet| %>
+                <%= render 'shared/card', tweet: tweet %>
+            <% end %>
+        </div>
+    </div>
+</div>
