@@ -31,9 +31,9 @@
 
 puts "Seeding users"
 
-user = User.create(email: "test@gmail.com", password: "password", username: 'test_user_1')
+user = User.create(email: "test@gmail.com", password: "password", username: 'DonaldTrump')
 
-user_2 = User.create(email: "test_2@gmail.com", password: "password", username: 'test_user_2')
+user_2 = User.create(email: "test_2@gmail.com", password: "password", username: 'BonnieTyler')
 
 puts "Succesfully seeded users!✅"
 
@@ -42,25 +42,19 @@ puts "Seeding tweets"
 
 
   Tweet.create(
-    body: "This is test tweet number 1",
+    body: "We have a 5 billion dollar website. I have so many websites. I have them all over the place... I hire people... it costs me three dollars.",
     user_id: 1
   )
 
     Tweet.create(
-    body: "This is test tweet number 2",
+    body: "It's freezing and snowing in New York--we need global warming!",
     user_id: 1
   )
 
     Tweet.create(
-    body: "This is test tweet number 3",
-    user_id: 1
+    body: "Once upon a time I was falling in love",
+    user_id: 2
   )
 
 
 puts "Succesfully seeded tweets!✅"
-
-  Like.create(
-    user_id: 1,
-    tweet_id: 1,
-    has_liked: true
-  )
