@@ -18,10 +18,12 @@
 
 
       <% @likes.each do |like| %>
-        <% if tweet.likes.empty? && current_user.id !=   like.user_id%>
-          <%= link_to "Like", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-primary'%>
-          <% else %>
+        <% if tweet.likes.length >= 1 || current_user.id ==   like.user_id%>
           <%= link_to "Like", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-secondary'%>
+          <% break %>
+          <% else %>
+          <%= link_to "Like", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-primary'%>
+          <% break %>
 
         <% end %>
       <% end %>
