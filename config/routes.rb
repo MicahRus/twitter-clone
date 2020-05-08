@@ -9,16 +9,11 @@ Rails.application.routes.draw do
 
   root to: "tweets#index"
 
-  # resources :users do
-  #   resources :tweets do
-  #     resources :likes
-  #   end
-  # end
 
      resources :tweets do
       resources :likes
     end
-  # end
+    
   resources :tweets
 
   get '/:username', to: "profile#index", as: :profile

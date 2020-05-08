@@ -16,18 +16,13 @@
     <div class="btn-controls ml-auto">
     <%= link_to "View", tweet_path(tweet.id), class: 'btn-sm btn-primary' %>
 
-
-      <% @likes.each do |like| %>
-        <% if tweet.likes.length >= 1 || current_user.id ==   like.user_id%>
+      <% if tweet.likes.where(user_id: current_user.id).empty?%>
+        <%= link_to "Like", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-primary'%>
+        <% else %>
           <%= link_to "Like", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-secondary'%>
-          <% break %>
-          <% else %>
-          <%= link_to "Like", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-primary'%>
-          <% break %>
-
-        <% end %>
       <% end %>
-    
+
+
 
 
 
