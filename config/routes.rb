@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  resources :tweets, only: [:new, :show, :index]
-  
   resources :likes, only: [:new, :create, :destroy]
-  
+ 
   resources :users
 
   root to: "tweets#index"
@@ -14,6 +12,9 @@ Rails.application.routes.draw do
       resources :likes
     end
     
+
+  post '/:username/follow', to: 'relationships#create', as: :follow
+
   resources :tweets
 
   get '/:username', to: "profile#index", as: :profile

@@ -1,3 +1,6 @@
 class ProfileController < ApplicationController
-  def index; end
+  def index
+    @tweets = Tweet.all
+    @likes = Like.all
+  end
 end

@@ -26,6 +26,9 @@ Metrics/MethodLength:
 Style/SymbolArray:
   Enabled: false
 
+Rails/InverseOf:
+  Enabled: false
+
 Style/EmptyMethod:
   Enabled: false
 
