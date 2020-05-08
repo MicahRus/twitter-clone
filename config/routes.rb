@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :likes
   end
 
-  get '/:username/follow', to: 'relationship#create', as: :follow
+  post '/:username/follow', to: 'relationships#create', as: :follow
 
   resources :tweets
 

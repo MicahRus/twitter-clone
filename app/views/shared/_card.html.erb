@@ -1,7 +1,11 @@
 <div class="card mt-2 mb-2 p-3">
   <p><%= link_to "#{User.find(tweet.user_id).username}", "/#{User.find(tweet.user_id).username}" %> · <%= tweet.created_at %></p>
   <% if User.find(tweet.user_id).username != current_user.username %>
-    <p><%= link_to "Follow", "/#{User.find(tweet.user_id).username}/follow" %></p>
+      <% if current_user.following.where(user_id: User.find(tweet.user_id).id).empty? %>
+        <p><%= link_to "Follow", "/#{User.find(tweet.user_id).username}/follow" , method: :post %></p>
+      <% else %>
+        <p><%= link_to "Unfollow", "/#{User.find(tweet.user_id).username}/follow" , method: :post %></p>
+      <% end %>
   <% end %>
   <p><%= tweet.body %></p>
   <div class="row d-flex m-0">
