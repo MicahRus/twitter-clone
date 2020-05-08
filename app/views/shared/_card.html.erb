@@ -1,12 +1,13 @@
 <div class="card mt-2 mb-2 p-3">
-  <p><%= link_to "#{User.find(tweet.user_id).username}", "/#{User.find(tweet.user_id).username}" %> · <%= tweet.created_at %></p>
+  <p><%= link_to "#{User.find(tweet.user_id).username}", "/#{User.find(tweet.user_id).username}" %> 
   <% if User.find(tweet.user_id).username != current_user.username %>
       <% if current_user.following.where(user_id: User.find(tweet.user_id).id).empty? %>
-        <p><%= link_to "Follow", "/#{User.find(tweet.user_id).username}/follow" , method: :post %></p>
+         · <%= link_to "Follow", "/#{User.find(tweet.user_id).username}/follow", class: 'btn-sm btn-primary', method: :post %>
       <% else %>
-        <p><%= link_to "Unfollow", "/#{User.find(tweet.user_id).username}/follow" , method: :post %></p>
+         · <%= link_to "Unfollow", "/#{User.find(tweet.user_id).username}/follow", class: 'btn-sm btn-danger', method: :post %>
       <% end %>
   <% end %>
+  · <%= tweet.created_at %></p>
   <p><%= tweet.body %></p>
       <% @likes.each do |like| %>
         <% if like.tweet.id == tweet.id%>
@@ -20,22 +21,18 @@
     <% end %>
   <div class="row d-flex m-0">
   
-    <div class="btn-controls ml-auto">
-    <%= link_to "View", tweet_path(tweet.id), class: 'btn-sm btn-primary' %>
-
+    <div class="btn-controls ml-auto">    
       <% if tweet.likes.where(user_id: current_user.id).empty?%>
-        <%= link_to "Like", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-primary'%>
+        <%= link_to "Like 👍", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-primary'%>
         <% else %>
-          <%= link_to "Like", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-secondary'%>
+          <%= link_to "Like 👎", tweet_likes_path(tweet), method: :post, class: 'btn-sm btn-secondary'%>
       <% end %>
 
+      <%= link_to "View", tweet_path(tweet.id), class: 'btn-sm btn-primary' %>
 
-
-
-
-    <% if params[:controller] == 'profile' && params[:action] == 'index' %>
-        <%= link_to "Edit", edit_tweet_path(tweet.id), class: "btn-sm btn-success"  %> <%= link_to "Delete", tweet_path(tweet.id), class: "btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>
+      <% if params[:controller] == 'tweets' && params[:action] == 'show' && tweet.user_id == current_user.id %>
+          <%= link_to "Edit", edit_tweet_path(tweet.id), class: "btn-sm btn-success"  %> <%= link_to "Delete", tweet_path(tweet.id), class: "btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
   </div>
 </div>
