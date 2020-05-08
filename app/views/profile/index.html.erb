@@ -3,5 +3,5 @@
 <p><%= current_user.username %></p>
 
 <% current_user.tweets.each do |tweet| %>
-    <%= render 'shared/card', tweet: tweet %>
+  <%= render 'shared/card', tweet: tweet %>
 <% end %>
