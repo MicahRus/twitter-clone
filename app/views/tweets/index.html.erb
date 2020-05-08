@@ -1,6 +1,5 @@
 <%= render 'shared/form', tweet: @tweet %>
 
-
 <% @tweets.reverse_each do |tweet| %>
   <%= render 'shared/card', tweet: tweet %>
 <% end %>
