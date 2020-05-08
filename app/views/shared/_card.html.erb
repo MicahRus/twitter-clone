@@ -1,5 +1,8 @@
 <div class="card mt-2 mb-2 p-3">
-  <p><%= User.find(tweet.user_id).username %> · <%= tweet.created_at %></p>
+  <p><%= link_to "#{User.find(tweet.user_id).username}", "/#{User.find(tweet.user_id).username}" %> · <%= tweet.created_at %></p>
+  <% if User.find(tweet.user_id).username != current_user.username %>
+    <p><%= link_to "Follow", "/#{User.find(tweet.user_id).username}/follow" %></p>
+  <% end %>
   <p><%= tweet.body %></p>
   <div class="row d-flex m-0">
     <div class="btn-controls ml-auto">

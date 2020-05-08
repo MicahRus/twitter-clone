@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :tweets, only: [:new, :show, :index]
   
   resources :likes, only: [:new, :create, :destroy]
-  
+ 
   resources :users
 
   root to: "tweets#index"
@@ -15,10 +15,12 @@ Rails.application.routes.draw do
   #   end
   # end
 
-     resources :tweets do
-      resources :likes
-    end
-  # end
+  resources :tweets do
+    resources :likes
+  end
+
+  get '/:username/follow', to: 'relationship#create', as: :follow
+
   resources :tweets
 
   get '/:username', to: "profile#index", as: :profile
