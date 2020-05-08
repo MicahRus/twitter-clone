@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @tweet = Tweet.new
   end
 
   def new
@@ -38,7 +39,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.permit(:body)
+    params.require(:tweet).permit(:body)
   end
 
   def set_tweet
