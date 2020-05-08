@@ -1,0 +1,7 @@
+<h1> User Homepage </h1>
+
+<%= render 'shared/navbar'%>
+
+<% @tweets.each do |tweet| %>
+  <p><%= tweet.body %></p>
+<% end %>

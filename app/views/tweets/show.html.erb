@@ -2,18 +2,7 @@
 
 <%= @tweet.body %>
 
-<div>
-  <% @tweets.each do |tweet| %>
-    <p><%= tweet.body %></p>
-
-    <% @likes.each do |like| %>
-      <%  if like.tweet.id == tweet.id%>
-      <p> <%= like.user.username %> Liked this</p>
-      <% end %>
-    <% end %>
-  <p> <%= link_to "Like", tweet_likes_path(tweet), method: :post%> </p>
-  <% end %>
-</div>
+<%= render 'shared/card', tweet: @tweet %>
  
  <div class="show-edit-delete">
    <% if can? :edit, @tweet %>
